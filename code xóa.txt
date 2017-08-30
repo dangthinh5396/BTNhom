@@ -1,0 +1,10 @@
+﻿DialogResult = MessageBox.Show("Bạn có chắc muốn xóa!", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            if (DialogResult == DialogResult.OK)
+            {
+                cnn.Open();
+                string xoanv = "delete NHANVIEN where MaNV = '" + txtMaNV.Text + "'";
+                SqlCommand cmdxoanv = new SqlCommand(xoanv, cnn);
+                cmdxoanv.ExecuteNonQuery();
+            }
+            ketnoicsdl();
+            cnn.Close();
